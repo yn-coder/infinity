@@ -10,7 +10,7 @@ This is just for fun.
 
 ## Stack
 
-Whole stack is free
+Used stack is totally free
 
 * [Python 3](https://www.python.org/) - programming language
 * [Bottle](https://github.com/bottlepy/bottlepy.org) - micro framework
