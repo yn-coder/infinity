@@ -1,6 +1,6 @@
 from bottle import route, run, template, error, default_app
 
-FOOTER_HTML = '<hr><p><a href="/">Index</a></p>'
+FOOTER_HTML = '<hr><p><a href="/">Index</a></p><p><a href="https://github.com/yn-coder/infinity">Source code on GitHub</a></p>'
 
 @route('/')
 def index():
@@ -15,8 +15,7 @@ def pages(code):
     try:
         i = int(code)
         next = i + 1
-        #s = '%i %i' % (i,i)
-        s = template('<h1>Code: {{i}}</h1><p><a href="https://www.google.com/search?q={{i}}">Some interesting about {{i}} in Google</a></p><p><a href="https://www.wolframalpha.com/input/?i={{i}}">Some interesting about {{i}} on WolframAlpha</a></p><h1>Next</h1><p><a href="{{next}}">Next {{next}}</a></p>', i = i, next = next )
+        s = template('<h1>Code: {{i}}</h1><p><a href="https://www.google.com/search?q={{i}}">Some interesting about {{i}} in Google</a></p><p><a href="https://www.wolframalpha.com/input/?i={{i}}">Some interesting about {{i}} on WolframAlpha</a></p><p><a href="https://duckduckgo.com/?q={{i}}">Some interesting about {{i}} in DuckDuckGo</a></p><h1>Next</h1><p><a href="{{next}}">Next {{next}}</a></p>', i = i, next = next )
     except:
         #abort(404)
         s = template('{{code}} not an integer', code=code)
