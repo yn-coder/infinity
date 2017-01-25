@@ -18,6 +18,7 @@ def error404(error):
 # List of internet urls for integer. Add new url here
 URL_LIST = ( ( 'https://www.google.com/search?q={{i}}' , 'in Google' ),
              ( 'https://www.wolframalpha.com/input/?i={{i}}' , 'on WolframAlpha' ),
+             ( 'http://www.sympygamma.com/input/?i={{i}}' , 'on SymPyGamma' ),
              ( 'https://duckduckgo.com/?q={{i}}' , 'in DuckDuckGo' ),
              ( 'https://en.wikipedia.org/w/index.php?search={{i}}' , 'in Wikipedia' ),
  )
@@ -34,7 +35,7 @@ def pages(code):
         for ue in URL_LIST:
             links = links + '<li>' + format_link( ue[0], ue[1] ) + '</li>'
         # format page
-        s = template('<h1>Code: {{i}}</h1>' +
+        s = template('<h1>Number: {{i}}</h1>' +
                      '<p>Something interesting about <strong>{{i}}</strong>:</p><ul>' +
                      links +
                      '</ul>' +
