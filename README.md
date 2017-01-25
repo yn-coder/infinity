@@ -15,3 +15,4 @@ Used stack is totally free
 * [Python 3](https://www.python.org/) - programming language
 * [Bottle](https://github.com/bottlepy/bottlepy.org) - micro framework
 * [PythonAnywhere](https://www.pythonanywhere.com/) - Python hosting (Beginer free plan used)
+* [GitHub](https://github.com/yn-coder/infinity) - code hosting
