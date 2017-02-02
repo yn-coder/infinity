@@ -8,12 +8,20 @@ FOOTER_HTML = '<hr><p>' + format_link( '/', 'Index' ) + '</p><p>' + format_link(
 # index page
 @route('/')
 def index():
-    return '<h1>Infinite site</h1><p>Start ' + format_link( '1', 'at 1' ) + '</p>' + FOOTER_HTML
+
+#################плохой код
+
+    s = '1'
+    list = [ s, ]
+    for i in range( 0, 19 ):
+        s = s + '000'
+        list.append( s )
+    return template( 'index', list=list )
 
 # 404 page
 @error(404)
 def error404(error):
-    return 'Nothing here, sorry' + FOOTER_HTML
+    return template( '404' )
 
 # List of internet urls for integer. Add new url here
 URL_LIST = ( ( 'https://www.google.com/search?q={{i}}' , 'in Google' ),
@@ -29,28 +37,32 @@ def pages(code):
     try:
         i = int(code)
         next = i + 1
+        prev = i - 1
         
         # format list of links
         links = ''
         for ue in URL_LIST:
             links = links + '<li>' + format_link( ue[0], ue[1] ) + '</li>'
         # format page
-        s = template('<h1>Number: {{i}}</h1>' +
-                     '<p>Something interesting about <strong>{{i}}</strong>:</p><ul>' +
-                     links +
-                     '</ul>' +
-                     '<h1>Next</h1><p>' + format_link( '{{next}}', 'Next {{next}}' ) + '</p>', i = i, next = next )
+        #'<h1>Number: {{i}}</h1>' +
+        #             '<p>Something interesting about <strong>{{i}}</strong>:</p><ul>' +
+        #             links +
+        #             '</ul>' +
+        #             '<h1>Neighbors</h1><p>' + format_link( '{{next}}', 'Next {{next}}' ) + '</p>', 
+        #s = template( 'page', i = i, next = next )
+        return template( 'page', i = i, next = next, prev = prev )
     except:
         #abort(404)
-        s = template('{{code}} not an integer', code=code)
+        #s = template('{{code}} not an integer', code=code)
+        return template( 'page_not_int', code = code )
 
-    return s + FOOTER_HTML
+    #return s + FOOTER_HTML
 
 if __name__ == "__main__":
     # Interactive mode
     print('debug')
     FOOTER_HTML = FOOTER_HTML + '<hr><strong>DEBUG</strong>'
-    run(host='localhost', port=8080, reloader=True)
+    run(host='localhost', port=8080, reloader=True, debug=True)
 else: 
     # production mode
     application = default_app()
