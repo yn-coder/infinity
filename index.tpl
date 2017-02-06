@@ -4,7 +4,11 @@
 
 <p>Start here:</p>
 <ul>
-  % for item in list:
-    <li><a href="{{item}}">{{item}}</a></li>
+  % l = '1'
+  % n = l
+  % for i in range(0,24):
+    <li><a href="{{l}}">{{n}}</a></li>
+  % l = l + '000'
+  % n = n + ' 000'
   % end
 </ul>

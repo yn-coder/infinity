@@ -3,13 +3,7 @@ from bottle import route, run, template, error, default_app
 # index page
 @route('/')
 def index():
-
-    s = '1'
-    list = [ s, ]
-    for i in range( 0, 19 ):
-        s = s + '000'
-        list.append( s )
-    return template( 'index', list=list )
+    return template( 'index' )
 
 # 404 page
 @error(404)
