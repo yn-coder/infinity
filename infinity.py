@@ -23,10 +23,12 @@ def pages(code):
         #abort(404)
         return template( 'page_not_int', code = code )
 
+import os
 if __name__ == "__main__":
-    # Interactive mode
-    print('debug')    
-    run(host='localhost', port=8080, reloader=True, debug=True)
-else: 
-    # production mode
-    application = default_app()
+    if os.environ.get('PYTHON_DEBUG') == '1':
+        # Interactive mode
+        print('debug')
+        run(host='localhost', port=8080, reloader=True, debug=True)
+    else:
+        # production mode
+        run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
