@@ -1,4 +1,5 @@
 from bottle import route, run, template, error, default_app
+import markdown
 
 # index page
 @route('/')
@@ -17,8 +18,14 @@ def pages(code):
         i = int(code)
         next = i + 1
         prev = i - 1
-        
-        return template( 'page', i = i, next = next, prev = prev )
+
+        try:
+            f = open( 'int\\'+ code + '.md', 'r')
+            md_html = markdown.markdown( f.read() )
+        except:
+            md_html = ''
+
+        return template( 'page', i = i, next = next, prev = prev, md_html = md_html )
     except:
         #abort(404)
         return template( 'page_not_int', code = code )

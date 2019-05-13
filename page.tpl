@@ -2,6 +2,8 @@
 
 <h1>Infinite site, page about {{i}}</h1>
 
+{{!md_html}}
+
 <p>Something interesting about <code>{{i}}</code>:</p>
 <ul>
 <li><a href="https://www.wolframalpha.com/input/?i={{i}}">on WolframAlpha</a></li>
