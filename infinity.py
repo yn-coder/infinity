@@ -21,10 +21,10 @@ def pages(code):
         prev = i - 1
 
         try:            
-            f = open( os.path.join( 'int\\', code, '.md' ), 'r')
+            f = open( os.path.join( 'int', code, '.md' ), 'r')
             md_html = markdown.markdown( f.read() )
         except:
-            md_html = ''
+            md_html = 'fail'
 
         return template( 'page', i = i, next = next, prev = prev, md_html = md_html )
     except:
