@@ -19,12 +19,15 @@ def pages(code):
         i = int(code)
         next = i + 1
         prev = i - 1
-
+        
+        md_html = ''
         try:            
-            f = open( os.path.join( 'int', code, '.md' ), 'r')
+            p = os.path.join( 'int', code, '.md' )
+            md_html = p
+            f = open( p, 'r')
             md_html = markdown.markdown( f.read() )
         except:
-            md_html = 'fail'
+            pass
 
         return template( 'page', i = i, next = next, prev = prev, md_html = md_html )
     except:
