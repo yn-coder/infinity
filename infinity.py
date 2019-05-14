@@ -22,9 +22,7 @@ def pages(code):
         
         md_html = ''
         try:            
-            p = os.path.join( 'int', code + '.md' )
-            md_html = p
-            f = open( p, 'r')
+            f = open( os.path.join( 'int', code + '.md' ), 'r')
             md_html = markdown.markdown( f.read() )
         except:
             pass
