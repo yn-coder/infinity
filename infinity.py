@@ -1,5 +1,6 @@
 from bottle import route, run, template, error, default_app
 import markdown
+import os
 
 # index page
 @route('/')
@@ -19,8 +20,8 @@ def pages(code):
         next = i + 1
         prev = i - 1
 
-        try:
-            f = open( 'int\\'+ code + '.md', 'r')
+        try:            
+            f = open( os.path.join( 'int\\', code, '.md' ), 'r')
             md_html = markdown.markdown( f.read() )
         except:
             md_html = ''
@@ -30,7 +31,6 @@ def pages(code):
         #abort(404)
         return template( 'page_not_int', code = code )
 
-import os
 if __name__ == "__main__":
     if os.environ.get('PYTHON_DEBUG') == '1':
         # Interactive mode
