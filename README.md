@@ -17,3 +17,7 @@ Used stack is totally free
 * [Heroku](https://www.heroku.com/) - hosting
 * [Git](https://git-scm.com/) - Git for code sychronization and hosting deploy
 * [GitHub](https://github.com/yn-coder/infinity) - code hosting
+
+## Contribute!
+
+Easy way to contribute is to create the new (or update the existing one) `number.md` file in `int\` folder. Write down something interesting about your favorite number!
